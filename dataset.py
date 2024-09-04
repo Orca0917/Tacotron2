@@ -1,6 +1,5 @@
 import torch
 
-from tqdm import tqdm
 from torch import Tensor
 from torch.utils.data import Dataset
 from typing import List, Tuple
