@@ -68,7 +68,7 @@ class Tacotron2(nn.Module):
     ) -> Tuple[Tensor, Tensor, Tensor, Tensor]:
         
         # 입력 문자는 학습된 512차원 문자 임베딩을 사용하여 표현된다.
-        embedded_inputs = self.embedding(tokens).transpose(1, 2)
+        embedded_inputs = self.embedding(tokens).transpose(1, 2) # [B, 256, seq_len]
         encoder_outputs = self.encoder(embedded_inputs, token_lengths)
 
         # 인코더의 출력은 디코더의 각 출력 단계에서 고정된 길이의 컨텍스트 벡터로

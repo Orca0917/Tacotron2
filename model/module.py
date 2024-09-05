@@ -51,7 +51,7 @@ class _Encoder(nn.Module):
 
         # 각 필터가 5개의 문자를 아우르는 형태의 512개의 필터를 포함한 3개의 컨볼루션 층을 거친다.
         # 각 층들 이후에는 배치 정규화와 ReLU 활성함수가 적용된다.
-        for conv in self.convolutions:
+        for conv in self.convolutions: # [B, 256, seq_len]
             x = F.dropout(F.relu(conv(x)), 0.5, self.training)
 
         x = x.transpose(1, 2)
